@@ -12,5 +12,6 @@ let settings = {
     started: false,
     gameMaster: null,
     joined: false,
-    inputNow: false
+    inputNow: false,
+    joinList: []
 }
