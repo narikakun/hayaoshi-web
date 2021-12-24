@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>オンライン早押しバトル</title>
+        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <link rel="stylesheet" type="text/css" href="./css/dashbaord.css" />
+
+        <script type="text/javascript" src="./js/settings.js"></script>
+        <script type="text/javascript" src="./js/websocket.js"></script>
+        <script type="text/javascript" src="./js/main.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body>
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <p class="navbar-brand col-md-3 col-lg-2 me-0 px-3">オンライン早押しバトル</p>
+            <span class="text-white" id="statusMsg">ステータスメッセージ</span>
+            <span class="text-white" id="timer"></span>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <p class="nav-link" id="headerName">匿名</p>
+                </li>
+            </ul>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column" id="playerList">
+                        </ul>
+                    </div>
+                </nav>
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" id="welcome">
+                        <label>ニックネーム</label>
+                        <input type="text" id="nickname">
+                        <br />
+                        <label>ルームキー</label>
+                        <input type="text" id="room-key" placeholder="ルームキーを入力" value="default">
+                        <input type="button" onclick="joinRoom()" class="btn-flat-border" value="参加する">
+                    </div>
+                    <div class="justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" id="wait" style="display: none;">
+                        <h1>待機中...</h1>
+                        <input type="button" onclick="startGame()" class="btn-flat-border" value="開始ボタン（ゲームマスターになります。）">
+                    </div>
+                    <div class="justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" id="game" style="display: none;">
+                        <h1 id="qu">問題の受信待ち...</h1>
+                        <input type="button" onclick="buttonA()" id="qubu" class="btn-flat-border" value="押すやつ">
+                        <div style="display: none;" id="an">
+                            <label>答えを入力</label>
+                            <input type="text" oninput="inputA()" id="ans">
+                        </div>
+                        <div style="display: none;" id="other_an">
+                            <label><span id="other_an_a"></span>が入力中</label>
+                            <input type="text" id="other_ans">
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>
